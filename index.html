@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday 🎉</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+  margin:0;
+  overflow-x:hidden;
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top, #141e30, #243b55);
+  color:white;
+}
+
+/* Subtle Floating Particles */
+.particle{
+  position:fixed;
+  width:4px;height:4px;
+  background:white;
+  border-radius:50%;
+  opacity:.5;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+
+/* Heading Glow */
+@keyframes glow{
+  0%,100%{text-shadow:0 0 15px #ff4da6,0 0 25px #ff66cc}
+  50%{text-shadow:0 0 30px #fff,0 0 60px #ff99dd}
+}
+.glow{animation:glow 2.5s infinite}
+
+/* Fade Up */
+.fade-up{animation:fadeUp 1.5s ease forwards}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Photo Cards */
+.photo-card{
+  transition:.4s;
+}
+.photo-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,255,255,.5);
+}
+
+/* Confetti */
+.confetti{
+  position:fixed;
+  width:7px;height:7px;
+  top:-10px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg)}
+}
+
+/* Sparkle Name */
+@keyframes sparkle{
+  0%,100%{text-shadow:0 0 10px #fff,0 0 20px #ff99cc}
+  50%{text-shadow:0 0 20px #fff,0 0 40px #ff66cc}
+}
+.sparkle{animation:sparkle 2s infinite}
+</style>
+</head>
+
+<body class="flex flex-col items-center text-center p-6 relative">
+
+<h1 class="text-5xl md:text-8xl font-extrabold glow mt-10 mb-6 fade-up">
+  🎉 HAPPY BIRTHDAY 🎂
+</h1>
+
+<p id="message" class="text-xl md:text-3xl max-w-3xl mb-12 font-semibold fade-up"></p>
+
+<!-- PHOTO GALLERY -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl fade-up">
+
+  <img src="photo01.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo1.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo2.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo3.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo4.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo5.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo6.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+  <img src="photo7.jpg" class="photo-card w-full h-64 object-contain bg-white/10 p-2 rounded-3xl"/>
+
+</div>
+
+
+<!-- DASHBOARD -->
+<div class="max-w-6xl w-full mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 fade-up">
+  <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/20 hover:scale-105 transition">
+    <h2 class="text-2xl font-bold text-pink-300 mb-3">🌟 Today’s Star</h2>
+    <p>The spotlight shines only on one queen today — and that’s you, Vidha Shree! 👑✨</p>
+  </div>
+  <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/20 hover:scale-105 transition">
+    <h2 class="text-2xl font-bold text-purple-300 mb-3">💖 Special Qualities</h2>
+    <p>Kind heart, beautiful smile, strong soul, and endless positivity 💫</p>
+  </div>
+  <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/20 hover:scale-105 transition">
+    <h2 class="text-2xl font-bold text-blue-300 mb-3">🎂 Birthday Vibes</h2>
+    <p>Cake calories don’t count today, happiness is unlimited! 🎉</p>
+  </div>
+</div>
+
+<!-- MESSAGE -->
+<div class="mt-16 mb-20 bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-2xl max-w-3xl border border-white/20 fade-up">
+  <p class="text-xl md:text-3xl font-extrabold leading-relaxed bg-gradient-to-r from-pink-200 via-purple-200 to-blue-200 text-transparent bg-clip-text">
+    ✨ Happy Birthday, <span class="sparkle text-white">Vidha Shree</span>! 🎉  
+    May your year be filled with success, happiness, and unforgettable memories. 💖🌟
+  </p>
+</div>
+
+<button onclick="playMusic()" class="mb-10 bg-pink-500 hover:bg-pink-600 px-6 py-3 rounded-full shadow-lg font-semibold">
+  🎵 Play Birthday Music
+</button>
+
+<div class="fixed right-4 bottom-4 text-sm bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white/80">
+  Created with 💖 by <span class="font-bold text-pink-300">Abhay Singh</span>
+</div>
+
+<script>
+// Typing Text
+const text="Wishing you a magical birthday filled with love and laughter!";
+let i=0;
+function typeWriter(){
+ if(i<text.length){
+  document.getElementById("message").innerHTML+=text.charAt(i);
+  i++; setTimeout(typeWriter,40);
+ }}
+typeWriter();
+
+// Confetti
+setInterval(()=>{
+ const c=document.createElement("div");
+ c.className="confetti";
+ c.style.left=Math.random()*window.innerWidth+"px";
+ c.style.backgroundColor=`hsl(${Math.random()*360},100%,60%)`;
+ c.style.animationDuration=(Math.random()*3+2)+"s";
+ document.body.appendChild(c);
+ setTimeout(()=>c.remove(),5000);
+},180);
+
+// Particles
+for(let i=0;i<30;i++){
+ let p=document.createElement("div");
+ p.className="particle";
+ p.style.left=Math.random()*100+"vw";
+ p.style.animationDuration=(Math.random()*8+5)+"s";
+ document.body.appendChild(p);
+}
+
+// Music
+let audio;
+function playMusic(){
+ if(!audio){
+  audio=new Audio("happy");
+ }
+ audio.play();
+}
+</script>
+
+</body>
+</html>
